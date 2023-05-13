@@ -38,7 +38,7 @@ describe("Assertions", () => {
         cy.xpath("//a").should("have.length", 149)
     })
 
-    it("Explicit", () => {
+    it.only("Explicit", () => {
         cy.visit("https://staging-ecom.techserve4u.com/")
 
         // expect - BDD
@@ -57,7 +57,8 @@ describe("Assertions", () => {
         let expectedName = "Protik"
 
         //function to explicit assertions
-        cy.get('.name_mobile > p').then((name) => {
+        cy.get('.name_mobile > p')
+        .then((name) => {
             let actualResult = name.text();
 
             //BDD asserts
